@@ -1,7 +1,7 @@
 /* styles.css */
 
 :root {
-  --bg-color: #0a0a0a;
+  --bg-color: #e5e5e5;
   --text-color: #f0f0f0;
   --accent-color: #37ffca;
   --button-bg: #222;
@@ -408,7 +408,7 @@ nav ul li a:hover,
 
 .name-label {
   margin-top: 60px;
-  font-size: 1.5rem;
+  font-size: 2.0rem;
   color: #ccc;
   font-weight: 600;
   text-align: left;
@@ -423,14 +423,14 @@ body.night-mode .name-label {
 /* Desktop: specific margin */
 @media (min-width: 768px) {
   .name-label {
-    margin-left: 135px; /* Desktop alignment */
+    margin-left: 105px; /* Desktop alignment */
   }
 }
 
 /* Mobile: shift slightly more left */
 @media (max-width: 767px) {
   .name-label {
-    margin-left: 80px; /* Slight left shift on mobile */
+    margin-left: 45px; /* Slight left shift on mobile */
   }
 }
  
@@ -439,7 +439,7 @@ body.night-mode .name-label {
 .edu-small {
   margin-left: 146px;
   margin-top: 5px;
-  font-size: 0.85rem;
+  font-size: 0.95rem;
   color: #aaa;
   font-weight: 300;
 }
@@ -448,6 +448,12 @@ body.night-mode .name-label {
 body.night-mode .edu-small {
   color: #ccc;
 }
+@media (min-width: 768px) {
+  .edu-small {
+    margin-left: 40px; /* Desktop alignment */
+  }
+}
+
 
 /* Optional mobile tweak */
 @media (max-width: 780px) {

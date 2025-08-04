@@ -5,17 +5,162 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>ShravanthPortfolio</title>
   <link rel="stylesheet" href="styles.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      background: linear-gradient(to right, #1e1e2f, #3a3a5c);
+      color: #fff;
+      animation: fadeIn 1.5s ease-in;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: #222;
+      padding: 1rem 2rem;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+    }
+
+    .logo {
+      font-size: 1.8rem;
+      font-weight: 600;
+      color: #c084fc;
+    }
+
+    .nav-links {
+      list-style: none;
+      display: flex;
+      gap: 1.5rem;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: #ddd;
+      transition: color 0.3s;
+    }
+
+    .nav-links a:hover {
+      color: #c084fc;
+    }
+
+    .hero {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      padding: 3rem 2rem;
+      flex-wrap: wrap;
+    }
+
+    .hero-text {
+      max-width: 600px;
+    }
+
+    .hero-text h1 {
+      font-size: 2.8rem;
+      margin-bottom: 1rem;
+    }
+
+    .hero-text h1 span {
+      color: #c084fc;
+    }
+
+    .hero-text p {
+      font-size: 1rem;
+      margin-bottom: 1.5rem;
+      line-height: 1.6;
+    }
+
+    .contact-btn {
+      background: #c084fc;
+      color: #fff;
+      padding: 0.7rem 1.5rem;
+      border-radius: 25px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: background 0.3s;
+    }
+
+    .contact-btn:hover {
+      background: #a855f7;
+    }
+
+    .hero-img {
+      text-align: center;
+    }
+
+    .img-wrapper {
+      width: 220px;
+      height: 220px;
+      border-radius: 50%;
+      overflow: hidden;
+      border: 4px solid #c084fc;
+      margin-bottom: 1rem;
+    }
+
+    .img-wrapper img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .name-label {
+      font-size: 1.2rem;
+      font-weight: bold;
+      color: #c084fc;
+    }
+
+    .edu-small {
+      font-size: 0.9rem;
+      margin-top: 0.3rem;
+      color: #ccc;
+    }
+
+    audio {
+      display: none;
+    }
+  </style>
 </head>
 <body>
+
+  <audio id="bg-music" loop>
+  <source src="music.mp3" type="audio/mpeg">
+  Your browser does not support the audio element.
+</audio>
+
+<script>
+  window.addEventListener('DOMContentLoaded', function () {
+    const audio = document.getElementById('bg-music');
+    setTimeout(() => {
+      audio.volume = 0.2; // optional: keep it low
+      audio.play().catch(err => {
+        console.warn("Autoplay failed. You may need to click to start audio.", err);
+      });
+    }, 300);
+  });
+</script>
+
+
   <header>
     <nav class="navbar">
       <div class="logo">Shravanth R</div>
       <ul class="nav-links">
         <li><a href="portfolio.html">Home</a></li>
         <li><a href="projects.html">Projects</a></li>
-    <li><a href="skills.html">Skills</a></li>
-    <li><a href="contact.html">Contact</a></li>
-        
+        <li><a href="skills.html">Skills</a></li>
+        <li><a href="contact.html">Contact</a></li>
       </ul>
     </nav>
   </header>
@@ -24,23 +169,21 @@
     <div class="hero-text">
       <h1><span>Frontend</span> Developer</h1>
       <p>Hello, Shravanth R. I’m a frontend developer with a passion for creating intuitive and engaging user interfaces. With experience in various web technologies and a keen eye for design, I focus on translating complex ideas into seamless and visually appealing digital experiences. I thrive on solving problems and continuously improving my skills to stay at the forefront of the industry.</p>
-      <a href="contact.html"" class="contact-btn">    Contact   </a>
+      <a href="contact.html" class="contact-btn">Contact</a>
     </div>
+
     <div class="hero-img">
       <div class="img-wrapper">
         <img src="myphoto.jpg" alt="Profile photo" />
       </div>
       <p class="name-label">Shravanth R</p>
       <div class="edu-small">
-  <p>ECE | 2023 – 2027</p>
-</div>
-
-
+        <p>ECE | 2023 – 2027</p>
+      </div>
     </div>
   </section>
 
   <script src="script.js"></script>
-
 
 </body>
 </html>
