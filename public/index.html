@@ -86,47 +86,51 @@
   </div>
 
   <script>
-    document.getElementById('login-form').addEventListener('submit', function(e) {
-      e.preventDefault();
-      const username = document.getElementById('username').value.trim();
-      if (!username) return;
+  const form = document.querySelector('form');
 
-      // Show loading screen
-      document.getElementById('loginBox').style.display = 'none';
-      document.getElementById('loadingOverlay').style.display = 'flex';
+  const apiBase = location.hostname === 'localhost' 
+    ? 'http://localhost:3019' 
+    : 'https://my-portfolio-backendone.onrender.com'; // ✅ Make sure this matches your deployed backend URL
 
-      // Save name in localStorage
-      localStorage.setItem('visitorName', username);
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
 
-      // Dynamic API base depending on environment
-      const apiBase = location.hostname === 'localhost'
-        ? 'http://localhost:3019'
-        : 'https://my-portfolio-backend-u00w.onrender.com';
+    const name = document.querySelector('#username').value.trim();
+    if (!name) {
+      alert("Please enter your name");
+      return;
+    }
 
-      // Send name to backend
-      fetch(`${apiBase}/api/visitors`, {
+    document.getElementById('loginBox').style.display = 'none';
+    document.getElementById('loadingOverlay').style.display = 'flex';
+
+    try {
+      const response = await fetch(`${apiBase}/api/visitors`, {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({ name: username })
-      })
-      .then(res => {
-        if (!res.ok) throw new Error('Failed to save');
-        return res.json();
-      })
-      .then(() => {
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ name })
+      });
+
+      const result = await response.json();
+
+      if (response.ok) {
         setTimeout(() => {
           window.location.href = 'portfolio.html';
         }, 1000);
-      })
-      .catch(err => {
-        alert('Server error. Try again.');
-        console.error(err);
+      } else {
+        alert(result.error || "Something went wrong");
         document.getElementById('loginBox').style.display = 'block';
         document.getElementById('loadingOverlay').style.display = 'none';
-      });
-    });
-  </script>
+      }
+    } catch (err) {
+      console.error("Error:", err);
+      alert("Server error");
+      document.getElementById('loginBox').style.display = 'block';
+      document.getElementById('loadingOverlay').style.display = 'none';
+    }
+  });
+</script>
+
+
 </body>
 </html>
