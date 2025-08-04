@@ -458,7 +458,7 @@ body.night-mode .edu-small {
 /* Optional mobile tweak */
 @media (max-width: 780px) {
   .edu-small {
-    margin-left: 5px;
+    margin-left: 10px;
     font-size: 0.9rem;
   }
 }

@@ -3,18 +3,151 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Skills - Sharath</title>
+  <title>Skills - Shravanth</title>
   <link rel="stylesheet" href="styles.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      background: linear-gradient(to right, #1e1e2f, #3a3a5c);
+      color: #fff;
+      animation: fadeIn 1.5s ease-in;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ⭐ Updated Navbar like in your image */
+    header {
+      background-color: #161528;
+      padding: 20px 0;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+    }
+body {
+      background-color: #0f0f1a;
+      color: #f0f0f0;
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    .navbar {
+      background-color: #1a1a2e;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.6);
+    }
+
+    .nav-links {
+      display: flex;
+      justify-content: center;
+      padding: 10px 0;
+      list-style: none;
+      margin: 0;
+    }
+
+    .nav-links li {
+      margin: 0 15px;
+    }
+
+    .nav-links a {
+      color: #c2b6ff;
+      text-decoration: none;
+      font-weight: bold;
+      transition: color 0.3s ease, transform 0.3s ease;
+    }
+
+    .nav-links a:hover {
+      color: #9a73ff;
+      transform: scale(1.1);
+    }
+
+    .skills-page {
+      padding: 6rem 2rem 3rem;
+      text-align: center;
+    }
+
+    .skills-page h1 {
+      font-size: 2.5rem;
+      color: #c084fc;
+      margin-bottom: 2rem;
+    }
+
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+      gap: 2rem;
+      padding: 1rem;
+      max-width: 1000px;
+      margin: auto;
+    }
+
+    .skill-box {
+      background-color: #2e2e48;
+      padding: 1rem;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+      transition: transform 0.3s, box-shadow 0.3s;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .skill-box:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 8px 20px rgba(192, 132, 252, 0.3);
+    }
+
+    .skill-box img {
+      width: 60px;
+      height: 60px;
+      margin-bottom: 10px;
+    }
+
+    .skill-box span {
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: #fff;
+    }
+
+    .skill-text {
+      text-align: center;
+    }
+
+    .skill-text small {
+      font-size: 0.8rem;
+      color: #ccc;
+      display: block;
+      margin-top: 4px;
+    }
+
+    @media (max-width: 768px) {
+      .nav-links {
+        gap: 20px;
+      }
+
+      .skills-grid {
+        grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+      }
+    }
+  </style>
 </head>
 <body>
-   <header>
+
+  <header>
     <nav class="navbar">
       <ul class="nav-links">
         <li><a href="portfolio.html">Home</a></li>
         <li><a href="projects.html">Projects</a></li>
-    <li><a href="skills.html">Skills</a></li>
-    <li><a href="contact.html">Contact</a></li>
-        
+        <li><a href="skills.html">Skills</a></li>
+        <li><a href="contact.html">Contact</a></li>
       </ul>
     </nav>
   </header>
@@ -22,23 +155,21 @@
   <section class="skills-page">
     <h1>My Skills</h1>
     <div class="skills-grid">
-      <!-- Example skill boxes -->
-      <div class="skill-box"><img src="icons/html.png"><span>HTML</span></div>
-      <div class="skill-box"><img src="icons/css.png"><span>CSS</span></div>
-      <div class="skill-box"><img src="icons/javascript.png"><span>JavaScript</span></div>
-      <div class="skill-box"><img src="icons/c.png"><span>C</span></div>
-      <div class="skill-box"><img src="icons/cpp.png"><span>C++</span></div>
-      <div class="skill-box"><img src="icons/java.png"alt="Java Icon">
-  <div class="skill-text">
-    <span>Java</span>
-    <small>Intermediate</small>
-  </div>
+      <div class="skill-box"><img src="icons/html.png" alt="HTML Icon"><span>HTML</span></div>
+      <div class="skill-box"><img src="icons/css.png" alt="CSS Icon"><span>CSS</span></div>
+      <div class="skill-box"><img src="icons/javascript.png" alt="JS Icon"><span>JavaScript</span></div>
+      <div class="skill-box"><img src="icons/c.png" alt="C Icon"><span>C</span></div>
+      <div class="skill-box"><img src="icons/cpp.png" alt="C++ Icon"><span>C++</span></div>
+      <div class="skill-box">
+        <img src="icons/java.png" alt="Java Icon">
+        <div class="skill-text">
+          <span>Java</span>
+          <small>Intermediate</small>
+        </div>
+      </div>
     </div>
   </section>
 
-
   <script src="script.js"></script>
-
-
 </body>
 </html>
