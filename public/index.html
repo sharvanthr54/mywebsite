@@ -98,8 +98,13 @@
       // Save name in localStorage
       localStorage.setItem('visitorName', username);
 
-      // Send to backend
-      fetch('https://my-portfolio-backend-u00w.onrender.com/api/visitors', {
+      // Dynamic API base depending on environment
+      const apiBase = location.hostname === 'localhost'
+        ? 'http://localhost:3019'
+        : 'https://my-portfolio-backend-u00w.onrender.com';
+
+      // Send name to backend
+      fetch(`${apiBase}/api/visitors`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
@@ -125,4 +130,3 @@
   </script>
 </body>
 </html>
-

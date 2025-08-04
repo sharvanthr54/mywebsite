@@ -7,10 +7,8 @@ const app = express();
 const port = process.env.PORT || 3019;
 
 // MongoDB connection
-mongoose.connect('mongodb+srv://shravanrhpeoples:1E0ROKBlBTOoaC4x@newusers.nqyrxpq.mongodb.net/', {
-  useNewUrlParser: true,
-  useUnifiedTopology: true
-}).then(() => {
+mongoose.connect('mongodb+srv://shravanrhpeoples:1E0ROKBlBTOoaC4x@newusers.nqyrxpq.mongodb.net/')
+.then(() => {
   console.log("✅ Connected to MongoDB");
 }).catch(err => {
   console.error("❌ MongoDB connection error:", err);
@@ -26,12 +24,14 @@ const Visitor = mongoose.model('Visitor', visitorSchema);
 // Middlewares
 app.use(cors());
 app.use(express.json());
-app.use(express.static(__dirname)); // Serve static files (HTML, CSS, JS, images)
+app.use(express.static(path.join(__dirname, 'public')));
+ // Serve static files (HTML, CSS, JS, images)
 
 // Routes
-app.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname, 'form.html'));
+app.get('/portfolio.html', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'portfolio.html'));
 });
+
 
 app.post('/api/visitors', async (req, res) => {
   const { name } = req.body;
